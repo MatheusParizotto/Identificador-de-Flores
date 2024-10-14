@@ -1,0 +1,10 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# TensorFlow e arquivos grandes
+*.h5
+*.pyd
+
+# Virtual environments
+venv/
