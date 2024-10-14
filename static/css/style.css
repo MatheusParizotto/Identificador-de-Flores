@@ -1,0 +1,108 @@
+/* style.css */
+
+/* Geral */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Container principal */
+.container {
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Título */
+h1 {
+    color: #333;
+}
+
+/* Formulário */
+form {
+    margin: 20px 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: #555;
+}
+
+/* Botão Procurar */
+input[type="file"] {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Texto "Nenhum arquivo selecionado" abaixo do botão */
+#fileName {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #555;
+    text-align: center;
+}
+
+/* Botão Classificar */
+input[type="submit"] {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #218838;
+}
+
+/* Pré-visualização da imagem */
+.image-preview {
+    margin: 20px 0;
+}
+
+.image-preview img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Resultado da classificação */
+.result {
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #e9ecef;
+}
+
+.result h2 {
+    color: #333;
+}
+
+.plant-info {
+    margin-top: 10px;
+}
+
+/* Rodapé */
+footer {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 0.9em;
+    color: #555;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classificador de Plantas</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Classificador de Plantas</h1>
+
+        <!-- Formulário para envio da imagem -->
+        <form method="POST" enctype="multipart/form-data">
+            <label for="file">Envie uma imagem da planta:</label>
+            <input type="file" id="file" name="file" required>
+            <input type="submit" value="Classificar">
+        </form>
+
+        <!-- Resultado da classificação (se houver) -->
+        {% if nome_planta %}
+        <div class="result">
+            <h2>Resultado:</h2>
+            <p><strong>Nome da Planta:</strong> {{ nome_planta }}</p>
+
+            <!-- Informações sobre a planta -->
+            <div class="plant-info">
+                <h3>Cuidados com a planta:</h3>
+                <p>{{ cuidados_necessarios }}</p>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

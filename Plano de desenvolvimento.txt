@@ -1,0 +1,19 @@
+* Etapas de desenvolvimento
+
+- Desenvolver o modelo de identificação;
+- Treinar o modelo com uma base de dados consistente;
+- Criar e preencher o banco de dados com os dados de cada classe de plantas;
+- Desenvolver a aplicação onde o usuário deve fazer o upload das imagens;
+- Escrever os códigos css e html para que o front seja incorporado e visualmente intuitivo;
+- Conectar o front com o modelo e verificar a sincronia dos dois;
+- Realizar os testes e corrigir os bugs que irão surgir;
+- Remover linhas de debug para entrega final.
+
+
+* Marcos
+
+- 03/10: Modelo Finalizado;
+- 10/10: Construção do banco;
+- 17/10: Desenvolver e realizar ajustes necessários no front;
+- 24/10: Geração da segunda versão do modelo;
+- 31/10: Sistema implantado;
