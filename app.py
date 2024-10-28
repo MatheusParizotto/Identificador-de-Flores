@@ -7,15 +7,13 @@ import os
 
 app = Flask(__name__)
 
-# Carregar o modelo treinado
+# Carregar o modelo 
 try:
     model = tf.keras.models.load_model(r'C:/Users/Parizotto/OneDrive/Documentos/Classificador_de_plantas/classificador_de_flores.h5')
 except Exception as e:
     print(f"Erro ao carregar o modelo: {e}")
 
-id_procurado = 1
-
-# Configura o caminho para o upload de imagens
+# Caminho para o upload de imagens
 UPLOAD_FOLDER = 'static/uploads'
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
@@ -36,26 +34,37 @@ def index():
             image = np.array(image) / 255.0
             image = np.expand_dims(image, axis=0)
 
-            # Fazer a predição
+            # Mapeamento
+            class_mapping = {0: 'Dente-de-leão', 1: 'Girassol', 2: 'Margarida', 3: 'Rosa', 4: 'Tulipa'}
+
+
+            # Predição
             predictions = model.predict(image)
             classe_planta = np.argmax(predictions[0])
-            
+
+            nome_planta = class_mapping[classe_planta]
+
             print("Classe Predita (índice):", classe_planta)
 
-            # Verificar a conexão com o banco de dados
             try:
                 conn = sqlite3.connect('data/cuidados.db')
                 cursor = conn.cursor()
                 print("Conexão com o banco de dados estabelecida com sucesso!")
                 
-                cursor.execute("SELECT nome_planta, cuidados_necessarios FROM instrucoes WHERE id = ?", (id_procurado,))
+                # Verifique se o nome da planta está correto e remova possíveis espaços extras
+                nome_planta = class_mapping[classe_planta].strip()
+
+                # Faça a consulta no banco de dados
+                cursor.execute("SELECT cuidados_necessarios FROM instrucoes WHERE nome_planta = ?", (nome_planta,))
                 resultado = cursor.fetchone()
-                
+
                 if resultado:
-                    nome_planta, cuidados_necessarios = resultado
+                    cuidados_necessarios = resultado[0]
+                    print(f"Nome da Planta: {nome_planta}")
+                    print(f"Cuidados Necessários: {cuidados_necessarios}")
                 else:
-                    nome_planta = "Desconhecida"
-                    cuidados_necessarios = "Informações não disponíveis."
+                    print("Nome da Planta: Desconhecida")
+                    print("Cuidados Necessários: Informações não disponíveis.")
                     
             except sqlite3.Error as e:
                 print(f"Erro ao conectar ao banco de dados: {e}")
