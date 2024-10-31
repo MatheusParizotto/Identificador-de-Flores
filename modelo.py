@@ -4,8 +4,8 @@ from tensorflow.keras import layers, models # type: ignore
 from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau # type: ignore
 
 # Caminhos para as pastas de treino e validação
-train_dir = r'C:/Users/Parizotto/OneDrive/Documentos/Classificador_de_plantas/data/train'
-val_dir = r'C:/Users/Parizotto/OneDrive/Documentos/Classificador_de_plantas/data/validation'
+train_dir = 'C:/Users/mathe/OneDrive/Documentos/Identificador-de-Flores/data/train'
+val_dir = 'C:/Users/mathe/OneDrive/Documentos/Identificador-de-Flores/data/validation'
 
 # Data Augmentation
 train_datagen = ImageDataGenerator(
@@ -66,12 +66,11 @@ reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.2, patience=3, min_lr
 # Treinamento do modelo
 history = model.fit(
     train_generator,
-    steps_per_epoch=train_generator.samples // train_generator.batch_size,
     validation_data=val_generator,
-    validation_steps=val_generator.samples // val_generator.batch_size,
-    epochs=20, 
+    epochs=30, 
     callbacks=[early_stopping, reduce_lr]
 )
 
 # Salvando o modelo
 model.save('classificador_de_flores.h5')
+print("Modelo treinado e salvo com sucesso!")
