@@ -1,28 +1,31 @@
-/* style.css */
-
 /* Geral */
 body {
-    font-family: Arial, sans-serif;
+    background-image: url('static/background.png');  
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-color: #e8f5e9; 
+    font-family: 'Arial', sans-serif;
+    color: #4A4A4A; 
     margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+    padding: 20px;
 }
 
 /* Container principal */
 .container {
     width: 80%;
     max-width: 800px;
-    margin: 0 auto;
+    margin: 50px auto;
     padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.9); 
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
     text-align: center;
 }
 
 /* Título */
 h1 {
-    color: #333;
+    color: #2c3e50;
+    font-size: 2.5em;
 }
 
 /* Formulário */
@@ -33,20 +36,23 @@ form {
 label {
     display: block;
     margin-bottom: 10px;
-    font-size: 1.1em;
+    font-size: 1.2em;
     color: #555;
 }
 
 /* Botão Procurar */
 input[type="file"] {
     display: block;
-    margin: 0 auto;
-    margin-bottom: 10px;
+    margin: 0 auto 10px;
     padding: 10px;
-    text-align: center;
+    background-color: #e9f5e9;
+    border: 2px solid #28a745;
+    border-radius: 8px;
+    font-size: 1em;
+    color: #2c3e50;
 }
 
-/* Texto "Nenhum arquivo selecionado" abaixo do botão */
+/* Texto "Nenhum arquivo selecionado" */
 #fileName {
     display: block;
     margin-top: 10px;
@@ -57,12 +63,12 @@ input[type="file"] {
 
 /* Botão Classificar */
 input[type="submit"] {
-    padding: 10px 20px;
-    font-size: 1em;
+    padding: 12px 25px;
+    font-size: 1.1em;
     background-color: #28a745;
-    color: #fff;
+    color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
 }
 
@@ -87,12 +93,12 @@ input[type="submit"]:hover {
     margin: 20px 0;
     padding: 20px;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 8px;
     background-color: #e9ecef;
 }
 
 .result h2 {
-    color: #333;
+    color: #2c3e50;
 }
 
 .plant-info {
@@ -101,8 +107,9 @@ input[type="submit"]:hover {
 
 /* Rodapé */
 footer {
-    margin-top: 20px;
-    padding: 10px;
+    margin-top: 30px;
+    padding: 15px;
     font-size: 0.9em;
     color: #555;
+    text-align: center;
 }
