@@ -4,19 +4,19 @@ import sqlite3
 from PIL import Image
 import numpy as np
 import os
-from tensorflow.keras.losses import MeanSquaredError
+from tensorflow.keras.losses import MeanSquaredError # type: ignore
 
 app = Flask(__name__)
 
 # Carregar o modelo autoencoder 
 try:
-    autoencoder = tf.keras.models.load_model(r'C:/Users/Parizotto/OneDrive/Documentos/Classificador_de_plantas/autoencoder_flores.h5', custom_objects={'mse': MeanSquaredError()})
+    autoencoder =  tf.keras.models.load_model('C:/Users/mathe/OneDrive/Documentos/Identificador-de-Flores/autoencoder_flores.h5', custom_objects={'mse': MeanSquaredError()})
 except Exception as e:
     print(f"Erro ao carregar o autoencoder: {e}")
 
 # Carregar o modelo 
 try:
-    model = tf.keras.models.load_model(r'C:/Users/Parizotto/OneDrive/Documentos/Classificador_de_plantas/classificador_de_flores.h5')
+    model = tf.keras.models.load_model('C:/Users/mathe/OneDrive/Documentos/Identificador-de-Flores/classificador_de_flores.h5')
 except Exception as e:
     print(f"Erro ao carregar o modelo de classificação: {e}")
 
@@ -47,7 +47,7 @@ def index():
             reconstructed_image = autoencoder.predict(image)
             loss = np.mean(np.abs(image - reconstructed_image))
 
-            limiar_anomalia = 0.02
+            limiar_anomalia = 0.05
 
             if loss > limiar_anomalia:
                 nome_planta = "Desconhecida"
@@ -58,7 +58,7 @@ def index():
                 confidence = np.max(predictions[0])
                 classe_planta = np.argmax(predictions[0])
 
-                limiar_confiança = 0.9
+                limiar_confiança = 0.5
 
                 if confidence < limiar_confiança:
                     nome_planta = "Desconhecida"
