@@ -3,7 +3,6 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator # type: igno
 from tensorflow.keras import layers, models # type: ignore
 from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau # type: ignore
 
-# Caminhos para as pastas de treino e validação
 train_dir = 'C:/Users/mathe/OneDrive/Documentos/Identificador-de-Flores/data/train'
 val_dir = 'C:/Users/mathe/OneDrive/Documentos/Identificador-de-Flores/data/validation'
 
@@ -36,7 +35,7 @@ val_generator = val_datagen.flow_from_directory(
     class_mode='categorical'
 )
 
-# Modelo de rede neural com Dropout
+# Rede neural com Dropout
 model = models.Sequential([
     layers.Conv2D(32, (3, 3), activation='relu', input_shape=(224, 224, 3)),
     layers.MaxPooling2D((2, 2)),
@@ -52,7 +51,7 @@ model = models.Sequential([
     layers.Dense(5, activation='softmax')
 ])
 
-# Compilação do modelo
+# Compilando
 model.compile(
     optimizer='adam',
     loss='categorical_crossentropy',
@@ -63,7 +62,7 @@ model.compile(
 early_stopping = EarlyStopping(monitor='val_loss', patience=5, restore_best_weights=True)
 reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.2, patience=3, min_lr=0.00001)
 
-# Treinamento do modelo
+# Treinamento 
 history = model.fit(
     train_generator,
     validation_data=val_generator,
