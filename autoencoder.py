@@ -2,7 +2,6 @@ import tensorflow as tf
 from tensorflow.keras import layers, models # type: ignore
 from tensorflow.keras.preprocessing.image import ImageDataGenerator # type: ignore
 
-# Caminhos para os dados de treino e validação
 train_dir = 'C:/Users/mathe/OneDrive/Documentos/Identificador-de-Flores/data/train'
 validation_dir = 'C:/Users/mathe/OneDrive/Documentos/Identificador-de-Flores/data/validation'
 
@@ -43,7 +42,7 @@ x = layers.Conv2D(32, (3, 3), activation='relu', padding='same')(x)
 x = layers.UpSampling2D((2, 2))(x)
 decoded = layers.Conv2D(3, (3, 3), activation='sigmoid', padding='same')(x)
 
-# Compilando o Autoencoder
+# Compilando 
 autoencoder = models.Model(input_img, decoded)
 autoencoder.compile(optimizer='adam', loss='mse')
 
@@ -56,6 +55,6 @@ autoencoder.fit(
     epochs=30  
 )
 
-# Salvando o Autoencoder treinado
+# Salvando o Autoencoder
 autoencoder.save('autoencoder_flores.h5')
 print("Autoencoder treinado e salvo com sucesso!")
