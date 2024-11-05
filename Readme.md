@@ -22,7 +22,7 @@ Este projeto é um sistema de classificação de flores utilizando o framework F
 
 4. **Instale as dependências**:
     ```bash
-    pip install -r requerimentos.txt
+    pip install -r requirements.txt
 
 5. **Execute o projeto**:
     ```bash
