@@ -12,7 +12,7 @@ Este projeto é um sistema de classificação de flores utilizando o framework F
 
 1. **Clone o repositório**:
    ```bash
-   git clone https://github.com/SeuUsuario/Identificador-de-Flores.git
+   git clone git clone https://github.com/SeuUsuario/Identificador-de-Flores.git
    cd Identificador-de-Flores
 
 3. **Crie o ambiente virtual**:
