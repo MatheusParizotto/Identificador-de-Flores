@@ -11,23 +11,23 @@ Este projeto é um sistema de classificação de flores utilizando o framework F
 ## Instalação
 
 1. **Clone o repositório**:
-
+   ```bash
    git clone https://github.com/SeuUsuario/Identificador-de-Flores.git
    cd Identificador-de-Flores
 
-2. **Crie o ambiente virtual**:
-
+3. **Crie o ambiente virtual**:
+    ```bash
     python -m venv venv
     venv\Scripts\activate
 
-3. **Instale as dependências**:
-
+4. **Instale as dependências**:
+    ```bash
     pip install -r requerimentos.txt
 
-4. **Execute o projeto**:
-
+5. **Execute o projeto**:
+    ```bash
     flask run
 
-5. **Adicional**:
+6. **Adicional**:
 
     Treine o modelo com a base disponível
